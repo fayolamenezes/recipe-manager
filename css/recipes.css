@@ -1,0 +1,293 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+  color: #2c2c2c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  background: #3c0a4d;
+  padding: 20px 0;
+  box-shadow: 0 4px 12px rgba(60, 10, 77, 0.5);
+  text-align: center;
+  margin-bottom: 30px;
+  border-radius: 0 0 15px 15px;
+}
+
+header h1 {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: #f4d6f9;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+header nav a:hover,
+header nav a:focus {
+  color: #ffaad0;
+  text-shadow: 0 0 5px #fca1c7;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.top-bar input[type="text"],
+.top-bar select {
+  flex: 1 1 200px;
+  max-width: 320px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #c5a0d5;
+  background-color: #f9f6fb;
+  color: #3c0a4d;
+  outline-offset: 2px;
+  transition: border-color 0.3s;
+}
+
+.top-bar input[type="text"]:focus,
+.top-bar select:focus {
+  border-color: #3c0a4d;
+  background-color: #f0e3f7;
+}
+
+#addRecipeBtn {
+  flex: 0 0 auto;
+  background: #ff6f91;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 111, 145, 0.4);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#addRecipeBtn:hover,
+#addRecipeBtn:focus {
+  background: #ff4878;
+  box-shadow: 0 6px 20px rgba(255, 72, 120, 0.5);
+}
+
+#imageUpload {
+  display: none;
+}
+
+#imageUpload + label {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #ff6f91;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+#imageUpload + label:hover {
+  background-color: #e65a7d;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recipe-card {
+  background: #ffffff;
+  border: 1px solid #e6d1f0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(60, 10, 77, 0.05);
+  padding: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.recipe-card:hover {
+  box-shadow: 0 8px 25px rgba(60, 10, 77, 0.15);
+  transform: translateY(-5px);
+}
+
+.recipe-card h3 {
+  margin-top: 0;
+  color: #3c0a4d;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.recipe-card p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 15px;
+}
+
+.recipe-card .category-label {
+  background: #3c0a4d;
+  color: white;
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.recipe-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.modal {
+  background: #fff;
+  border: 2px solid #3c0a4d;
+  padding: 30px 35px;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(60, 10, 77, 0.2);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  box-sizing: border-box;
+}
+
+.modal h3 {
+  margin-top: 0;
+  text-align: center;
+  color: #3c0a4d;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.modal input[type="text"],
+.modal textarea,
+.modal select {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  border: 2px solid #c5a0d5;
+  background: #f9f6fb;
+  font-size: 1rem;
+  color: #3c0a4d;
+  resize: vertical;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.modal input[type="text"]:focus,
+.modal textarea:focus,
+.modal select:focus {
+  border-color: #3c0a4d;
+  background-color: #f0e3f7;
+  outline: none;
+}
+
+.modal input[type="file"] {
+  margin-bottom: 25px;
+  cursor: pointer;
+  color: #3c0a4d;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 12px 0;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(60, 10, 77, 0.3);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.form-actions button[type="submit"] {
+  background: #3c0a4d;
+  color: #fff;
+}
+
+.form-actions button[type="submit"]:hover,
+.form-actions button[type="submit"]:focus {
+  background: #290234;
+  box-shadow: 0 6px 20px rgba(60, 10, 77, 0.5);
+}
+
+.form-actions button#cancelBtn {
+  background: #ff6f91;
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 111, 145, 0.4);
+}
+
+.form-actions button#cancelBtn:hover,
+.form-actions button#cancelBtn:focus {
+  background: #ff4878;
+  box-shadow: 0 6px 20px rgba(255, 72, 120, 0.6);
+}
+
+.hidden {
+  display: none;
+}

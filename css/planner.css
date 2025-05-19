@@ -1,0 +1,298 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+  color: #2c2c2c;
+}
+
+header, nav, footer {
+  background-color: #3c0a4d;
+  color: white;
+  padding: 1.2em 1em;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(60, 10, 77, 0.4);
+  border-radius: 0 0 15px 15px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #f4d6f9;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+nav a:hover,
+nav a:focus {
+  color: #ff6f91;
+  text-shadow: 0 0 5px #fca1c7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+.day-cell {
+  padding: 20px;
+  border: 1px solid #e0cfe8;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(75, 24, 105, 0.25);
+  background: white;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  color: #4b1869;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+  justify-content: space-between;
+  white-space: pre-wrap;
+}
+.day-cell:hover {
+  box-shadow: 0 6px 18px rgba(75, 24, 105, 0.4);
+}
+.day-cell h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: #4b1869;
+}
+
+.meal-row {
+  margin-bottom: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.meal-row label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+  color: #4b1869;
+}
+.meal-row textarea {
+  flex-grow: 1;
+  resize: none;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 2px solid #e0cfe8;
+  background: #f8f3fc;
+  font-size: 0.9rem;
+  color: #4b1869;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+  min-height: 50px;
+  font-family: inherit;
+}
+.meal-row textarea:focus {
+  border-color: #a442c4;
+  background-color: #f1e4fb;
+  outline: none;
+}
+.meal-row select {
+  margin-top: 4px;
+  border-radius: 12px;
+  border: 2px solid #e0cfe8;
+  padding: 5px;
+  font-size: 0.85rem;
+  background: #f8f3fc;
+  color: #4b1869;
+  transition: border-color 0.3s;
+}
+.meal-row select:focus {
+  border-color: #a442c4;
+  background-color: #f1e4fb;
+  outline: none;
+}
+
+.add-grocery-btn {
+  margin-top: 5px;
+  align-self: flex-start;
+  padding: 5px 10px;
+  background: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(255, 111, 145, 0.4);
+  transition: background-color 0.3s;
+}
+.add-grocery-btn:hover,
+.add-grocery-btn:focus {
+  background: #ff486f;
+  box-shadow: 0 6px 15px rgba(255, 72, 111, 0.6);
+}
+
+.controls {
+  max-width: 1000px;
+  margin: 0 auto 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  align-items: center;
+}
+.controls button {
+  padding: 10px 20px;
+  background: #4b1869;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(75, 24, 105, 0.4);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  font-size: 1rem;
+}
+.controls button:hover,
+.controls button:focus {
+  background: #68298f;
+  box-shadow: 0 6px 20px rgba(75, 24, 105, 0.6);
+}
+#clearAllBtn {
+  background: #ff6f91;
+  box-shadow: 0 5px 15px rgba(255, 111, 145, 0.4);
+}
+#clearAllBtn:hover,
+#clearAllBtn:focus {
+  background: #ff486f;
+  box-shadow: 0 6px 20px rgba(255, 72, 111, 0.6);
+}
+#saveIndicator {
+  font-size: 1.1rem;
+  color: #68298f;
+  font-weight: 700;
+}
+
+#dayModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+#dayModal.hidden {
+  display: none;
+}
+#dayModal .modal-content {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+#dayModal h3 {
+  margin-top: 0;
+  color: #4b1869;
+  font-size: 1.8rem;
+  text-align: center;
+}
+#dayModal .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #555;
+  cursor: pointer;
+}
+#dayModal .close-btn:hover {
+  color: #ff486f;
+}
+#modalMealContent .meal-row {
+  margin-bottom: 20px;
+}
+
+.meal-summary strong {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4b1869;
+  padding-top: 8px;
+  white-space: pre-wrap;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+.meal-summary li {
+  margin-bottom: 5px;
+}
+.empty-placeholder {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #aaa;
+  padding-top: 10px;
+}
+
+.full-detail {
+  grid-column: span 3;
+}
+.hidden {
+  display: none;
+}
+.back-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #4b1869;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.save-button {
+  background: #6fcf97;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(111, 207, 151, 0.4);
+}
+.save-button:hover {
+  background-color: #43a047;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .controls button {
+    flex: 1 1 40%;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Recipes</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/recipes.css" />
+</head>
+<body>
+  <header>
+    <h1>Recipes</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="planner.html">Meal Planner</a>
+      <a href="grocery-list.html">Grocery List</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="top-bar">
+      <input type="text" id="search" placeholder="Search recipes by title..." />
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+      </select>
+      <button id="addRecipeBtn">Add New Recipe</button>
+    </section>
+
+    <section id="addRecipeSection" class="modal hidden">
+      <form id="recipeForm">
+        <h3 id="formTitle">Add New Recipe</h3>
+        <input type="text" id="recipeName" placeholder="Recipe Title" required />
+        <textarea id="ingredients" placeholder="Groceries & quantities (e.g., 1 cup sugar, 2 eggs)" required></textarea>
+        <textarea id="steps" placeholder="Steps to prepare..." required></textarea>
+        <select id="recipeCategory" required>
+          <option value="">Select Category</option>
+        </select>
+        <input type="file" id="imageUpload" accept="image/*" />
+        <label for="imageUpload">Choose Image</label>
+        <img id="imagePreview" src="" alt="Image preview" style="display:none; max-width: 100%; margin-top: 10px; border-radius: 5px;" />
+        <div class="form-actions">
+          <button type="submit">Save Recipe</button>
+          <button type="button" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="recipeList" class="card-grid"></section>
+  </main>
+
+  <script src="js/recipes.js"></script>
+</body>
+</html>

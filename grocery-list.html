@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grocery List</title>
+  <link rel="stylesheet" href="css/grocery.css" />
+</head>
+<body>
+  <header>
+    <h1>Grocery List</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="planner.html">Meal Planner</a>
+      <a href="grocery-list.html">Grocery List</a>
+    </nav>
+  </header>
+
+  <main class="grocery-page container">
+    <section class="recipe-select-section">
+      <h2>Select Recipes</h2>
+      <div id="recipeCheckboxes" class="recipe-checkboxes"></div>
+    </section>
+
+    <section class="grocery-list-section">
+      <h2>Grocery List</h2>
+      <ul id="groceryItems" class="grocery-items"></ul>
+
+      <div class="manual-add">
+        <input type="text" id="manualItem" placeholder="Add custom item" />
+        <button id="addManualItem">Add</button>
+      </div>
+    </section>
+
+    <div class="grocery-actions">
+      <button onclick="saveState()">Save</button>
+      <button onclick="clearList()">Clear</button>
+      <button onclick="window.print()">Print</button>
+    </div>
+  </main>
+
+  <script src="js/grocery.js"></script>
+</body>
+</html>

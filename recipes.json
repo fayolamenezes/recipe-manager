@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Cheesecake",
+    "ingredients": "16 oz cream cheese, 3/4 cup sugar, 2 eggs, 1 tsp vanilla extract, 1 graham cracker crust, 2 tbsp butter",
+    "steps": "Preheat oven to 325°F. Beat cream cheese until smooth. Add sugar and eggs one at a time. Stir in vanilla extract. Pour mixture onto crust. Bake for 50-60 minutes. Chill before serving.",
+    "category": "Dessert",
+    "image": "images/cheesecake.jpg"
+  },
+  {
+    "name": "Brownie",
+    "ingredients": "1/2 cup unsweetened cocoa powder, 1/2 cup flour, 1 cup sugar, 2 eggs, 1/2 cup butter, 1 tsp vanilla extract, 1/4 tsp salt",
+    "steps": "Preheat oven to 350°F. Melt butter and mix with cocoa powder. Add sugar, eggs, and vanilla extract. Stir in flour and salt. Pour into a greased pan. Bake for 20-25 minutes. Cool before cutting.",
+    "category": "Dessert",
+    "image": "images/brownie.jpg"
+  },
+  {
+    "name": "Avocado Toast",
+    "ingredients": "1 ripe avocado, 2 bread slices, 1 tsp lemon juice, 1/4 tsp salt, 1/8 tsp pepper, pinch chili flakes, 1 tsp olive oil",
+    "steps": "Toast bread slices. Mash avocado with lemon juice, salt, and pepper. Spread avocado mix on toast. Sprinkle chili flakes and drizzle olive oil on top. Serve immediately.",
+    "category": "Breakfast",
+    "image": "images/avocado_toast.jpg"
+  },
+  {
+    "name": "Loaded Nachos",
+    "ingredients": "4 cups tortilla chips, 1 cup shredded cheddar cheese, 1/4 cup sliced jalapenos, 1/2 cup black beans, 1/2 cup diced tomatoes, 1/3 cup sour cream, 1/3 cup guacamole",
+    "steps": "Preheat oven to 375°F. Spread tortilla chips on a baking sheet. Sprinkle cheese, jalapenos, black beans, and diced tomatoes evenly. Bake for 10-12 minutes until cheese melts. Serve topped with sour cream and guacamole.",
+    "category": "Snacks",
+    "image": "images/loaded_nachos.jpg"
+  },
+  {
+    "name": "Pork Ribs",
+    "ingredients": "2 lbs pork ribs, 1/2 cup barbecue sauce, 1 tsp garlic powder, 1 tsp onion powder, 1 tsp salt, 1/2 tsp pepper, 1 tbsp olive oil",
+    "steps": "Preheat oven to 300°F. Rub ribs with olive oil, garlic powder, onion powder, salt, and pepper. Wrap ribs in foil and bake for 2.5-3 hours. Unwrap, baste with barbecue sauce, and bake uncovered for 30 minutes.",
+    "category": "Lunch",
+    "image": "images/pork_ribs.jpg"
+  },
+  {
+    "name": "Chicken Cafreal",
+    "ingredients": "1.5 lbs chicken pieces, 1 cup coriander leaves, 3 green chilies, 4 garlic cloves, 1-inch ginger, 2 tbsp vinegar, 1 tsp mixed spices, 2 tbsp oil",
+    "steps": "Grind coriander leaves, green chilies, garlic, ginger, and spices into a paste. Marinate chicken with the paste and vinegar for at least 2 hours. Heat oil in a pan and fry chicken until cooked through and slightly charred. Serve hot.",
+    "category": "Dinner",
+    "image": "images/chicken_cafreal.jpg"
+  }
+]

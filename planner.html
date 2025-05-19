@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meal Planner</title>
+  <link rel="stylesheet" href="css/planner.css" />
+</head>
+<body>
+  <header>
+    <h1>Meal Planner</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="planner.html" class="active">Meal Planner</a>
+      <a href="grocery-list.html">Grocery List</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="controls">
+      <button id="clearAllBtn" title="Clear all meal plans">Clear All</button>
+      <button id="exportBtn" title="Export meal plan as JSON">Export Plan</button>
+      <span id="saveIndicator" class="hidden">Saved!</span>
+    </section>
+
+    <section id="calendar" class="grid"></section>
+  </main>
+
+  <div id="dayModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeDayModal()">×</span>
+      <h3 id="modalDayTitle">Day Name</h3>
+      <div id="modalMealContent"></div>
+    </div>
+  </div>
+
+  <script src="js/planner.js"></script>
+</body>
+</html>
