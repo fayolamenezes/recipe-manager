@@ -2,6 +2,10 @@
 
 This is a fully functional web application that allows users to manage their recipes, plan weekly meals, and generate grocery lists based on selected recipes and meal plans. It is designed with a responsive layout and offers persistent data storage using the browser's local storage.
 
+## 🔗 Live Site
+[View Portfolio](https://recipe-manager-rho-cyan.vercel.app/)
+
+---
 ## Features
 
 ### 1. Home Page
