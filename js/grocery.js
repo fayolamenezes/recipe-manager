@@ -1,4 +1,3 @@
-const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
 const groceryListEl = document.getElementById('groceryItems');
 const recipeCheckboxesEl = document.getElementById('recipeCheckboxes');
 const manualItemInput = document.getElementById('manualItem');
@@ -8,10 +7,16 @@ let checkedItems = JSON.parse(localStorage.getItem('checkedGroceryItems')) || {}
 let manualItems = JSON.parse(localStorage.getItem('manualGroceryItems')) || [];
 let selectedRecipes = JSON.parse(localStorage.getItem('selectedRecipes')) || [];
 
-const allRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+function getAllRecipes() {
+  const defaultRecipes = []; 
+  const userRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+  return [...defaultRecipes, ...userRecipes];
+}
 
 function populateRecipeCheckboxes() {
+  const allRecipes = getAllRecipes();
   recipeCheckboxesEl.innerHTML = '';
+
   allRecipes.forEach((recipe, index) => {
     const label = document.createElement('label');
     label.htmlFor = `recipeCheckbox${index}`;
@@ -41,6 +46,7 @@ function populateRecipeCheckboxes() {
 }
 
 function extractIngredients() {
+  const allRecipes = getAllRecipes();
   const ingredients = new Set();
 
   selectedRecipes.forEach(index => {
@@ -118,6 +124,11 @@ function clearList() {
     renderGroceryList();
   }
 }
+
+window.addEventListener('focus', () => {
+  populateRecipeCheckboxes();
+  renderGroceryList();
+});
 
 populateRecipeCheckboxes();
 renderGroceryList();
