@@ -63,14 +63,26 @@ function loadInitialRecipes() {
     .then(defaults => {
       defaultRecipes = defaults;
       userRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
-      recipes = [...defaultRecipes, ...userRecipes];
+
+      const merged = [...defaultRecipes, ...userRecipes];
+      recipes = merged.filter(
+        (recipe, index, self) =>
+          index === self.findIndex(r => r.name === recipe.name)
+      );
+
       applyFilters();
     })
     .catch(err => {
       console.error('Error loading recipes.json:', err);
       defaultRecipes = [];
       userRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
-      recipes = [...defaultRecipes, ...userRecipes];
+
+      const merged = [...defaultRecipes, ...userRecipes];
+      recipes = merged.filter(
+        (recipe, index, self) =>
+          index === self.findIndex(r => r.name === recipe.name)
+      );
+
       applyFilters();
     });
 }
