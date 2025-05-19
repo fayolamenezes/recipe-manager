@@ -8,47 +8,7 @@ let checkedItems = JSON.parse(localStorage.getItem('checkedGroceryItems')) || {}
 let manualItems = JSON.parse(localStorage.getItem('manualGroceryItems')) || [];
 let selectedRecipes = JSON.parse(localStorage.getItem('selectedRecipes')) || [];
 
-const defaultRecipes = [
-  {
-    name: "Cheesecake",
-    ingredients: "16 oz cream cheese, 3/4 cup sugar, 2 eggs, 1 tsp vanilla extract, 1 graham cracker crust, 2 tbsp butter",
-    steps: "Mix, bake, chill.",
-    category: "Dessert"
-  },
-  {
-    name: "Brownie",
-    ingredients: "1/2 cup unsweetened cocoa powder, 1/2 cup flour, 1 cup sugar, 2 eggs, 1/2 cup butter, 1 tsp vanilla extract, 1/4 tsp salt",
-    steps: "Mix, bake, cool.",
-    category: "Dessert"
-  },
-  {
-    name: "Avocado Toast",
-    ingredients: "1 ripe avocado, 2 bread slices, 1 tsp lemon juice, 1/4 tsp salt, 1/8 tsp pepper, pinch chili flakes, 1 tsp olive oil",
-    steps: "Toast bread, mash avocado, top and serve.",
-    category: "Breakfast"
-  },
-  {
-    name: "Loaded Nachos",
-    ingredients: "4 cups tortilla chips, 1 cup shredded cheddar cheese, 1/4 cup sliced jalapenos, 1/2 cup black beans, 1/2 cup diced tomatoes, 1/3 cup sour cream, 1/3 cup guacamole",
-    steps: "Layer and bake or microwave.",
-    category: "Snacks"
-  },
-  {
-    name: "Pork Ribs",
-    ingredients: "2 lbs pork ribs, 1/2 cup barbecue sauce, 1 tsp garlic powder, 1 tsp onion powder, 1 tsp salt, 1/2 tsp pepper, 1 tbsp olive oil",
-    steps: "Season, bake or grill.",
-    category: "Dinner"
-  },
-  {
-    name: "Chicken Cafreal",
-    ingredients: "1.5 lbs chicken pieces, 1 cup coriander leaves, 3 green chilies, 4 garlic cloves, 1-inch ginger, 2 tbsp vinegar, 1 tsp mixed spices, 2 tbsp oil",
-    steps: "Marinate and cook.",
-    category: "Dinner"
-  }
-];
-
-const userRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
-const allRecipes = [...defaultRecipes, ...userRecipes];
+const allRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
 
 function populateRecipeCheckboxes() {
   recipeCheckboxesEl.innerHTML = '';
