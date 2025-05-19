@@ -38,6 +38,7 @@ This is a fully functional web application that allows users to manage their rec
 - Responsive Design
 
 ## Folder Structure
+<pre> ```
 meal-planner/
 │
 ├── index.html
@@ -61,7 +62,7 @@ meal-planner/
 ├── images/
 │ ├── cheesecake.jpg
 │ ├── brownie.jpg
-│ └── ... (more recipe images)
+│ └── ... (more recipe images) ```</pre>
 
 
 ## How to Use
