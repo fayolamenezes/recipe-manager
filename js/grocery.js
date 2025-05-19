@@ -7,16 +7,28 @@ let checkedItems = JSON.parse(localStorage.getItem('checkedGroceryItems')) || {}
 let manualItems = JSON.parse(localStorage.getItem('manualGroceryItems')) || [];
 let selectedRecipes = JSON.parse(localStorage.getItem('selectedRecipes')) || [];
 
-function getAllRecipes() {
-  const defaultRecipes = []; 
-  const userRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
-  return [...defaultRecipes, ...userRecipes];
+let allRecipes = [];
+
+async function fetchAllRecipes() {
+  try {
+    const defaultRecipes = await fetch('recipes.json').then(res => res.json());
+    const userRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+
+    const merged = [...defaultRecipes, ...userRecipes];
+    allRecipes = merged.filter(
+      (recipe, index, self) =>
+        index === self.findIndex(r => r.name === recipe.name)
+    );
+  } catch (err) {
+    console.error('Failed to load default recipes:', err);
+    allRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+  }
 }
 
-function populateRecipeCheckboxes() {
-  const allRecipes = getAllRecipes();
-  recipeCheckboxesEl.innerHTML = '';
+async function populateRecipeCheckboxes() {
+  await fetchAllRecipes();
 
+  recipeCheckboxesEl.innerHTML = '';
   allRecipes.forEach((recipe, index) => {
     const label = document.createElement('label');
     label.htmlFor = `recipeCheckbox${index}`;
@@ -29,9 +41,7 @@ function populateRecipeCheckboxes() {
 
     checkbox.addEventListener('change', () => {
       if (checkbox.checked) {
-        if (!selectedRecipes.includes(index)) {
-          selectedRecipes.push(index);
-        }
+        if (!selectedRecipes.includes(index)) selectedRecipes.push(index);
       } else {
         selectedRecipes = selectedRecipes.filter(i => i !== index);
       }
@@ -46,7 +56,6 @@ function populateRecipeCheckboxes() {
 }
 
 function extractIngredients() {
-  const allRecipes = getAllRecipes();
   const ingredients = new Set();
 
   selectedRecipes.forEach(index => {
@@ -125,10 +134,12 @@ function clearList() {
   }
 }
 
-window.addEventListener('focus', () => {
-  populateRecipeCheckboxes();
+window.addEventListener('focus', async () => {
+  await populateRecipeCheckboxes();
   renderGroceryList();
 });
 
-populateRecipeCheckboxes();
-renderGroceryList();
+(async () => {
+  await populateRecipeCheckboxes();
+  renderGroceryList();
+})();
