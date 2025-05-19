@@ -38,7 +38,7 @@ This is a fully functional web application that allows users to manage their rec
 - Responsive Design
 
 ## Folder Structure
-<pre> ```
+<pre> 
 meal-planner/
 │
 ├── index.html
